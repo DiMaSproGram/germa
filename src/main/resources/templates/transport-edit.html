@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Вход</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script>
+</head>
+<body style="background-color: #202020; padding-top: 0px;">
+    <div class="container" style="margin-top: 100px;">
+        <form class="form-signin" th:action="@{/transport/edit/{id}(id=${transport.getVehicleId()})}" method="post" style="max-width: 340px">
+            <div class="alert alert-warning" role="alert" th:if="${message != null}">
+                <p th:text="${message}" style="margin-bottom: 0;"></p>
+            </div>
+            <p>
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="color: white">Номерной знак:</span>
+                </div>
+                <input th:value="${transport.getPlateNumber()}" type="text" id="plateNumber" name="plateNumber" class="form-control" minlength="4" required>
+            </p>
+            <p>
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="color: white">Марка:</span>
+                </div>
+                <input th:value="${transport.getBrand()}" type="text" id="mark" name="mark" class="form-control" minlength="4" required>
+            </p>
+            <p>
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="color: white">Фирма:</span>
+                </div>
+                <input th:value="${transport.getFirmName()}" type="text" id="firmName" name="firmName" class="form-control" minlength="4" required>
+            </p>
+            <p>
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="color: white">Грузоподъёмность:</span>
+                </div>
+                <input th:value="${transport.getLiftingCapacity()}" type="number" id="liftingCapacity" name="liftingCapacity" class="form-control" minlength="4" required>
+            </p>
+            <p>
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="color: white">Длина прицепа:</span>
+                </div>
+                <input th:value="${transport.getTrailerLenght()}" type="number" id="trailerLenght" name="trailerLenght" class="form-control" minlength="4" required>
+            </p>
+            <p>
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="color: white">Стоимость перевозки(руб/км):</span>
+                </div>
+                <input th:value="${transport.getTransportationCost()}" type="number" id="trCost" name="trCost" class="form-control" minlength="4" required>
+            </p>
+            <input name="_csrf" type="hidden" value="63cb8ad8-001e-4071-9ca6-7a0bc7999308">
+            <button class="btn btn-lg btn-primary btn-block btn-secondary" type="submit">Редактировать</button>
+            <button class="btn btn-lg btn-primary btn-block btn-secondary" onclick="window.location.href='/transport'" type="button">Назад</button>
+        </form>
+
+    </div>
+</body>
+</html>

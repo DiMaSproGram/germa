@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PC-creator</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</head>
+<body style="background-color: #202020">
+    <div class="container-narrow" style="margin-top: 200px;">
+        <label class="text-light" th:text="'Общая прибыль предприятия: ' + ${totalPrice} + ' руб'"></label>
+
+        <input name="_csrf" type="hidden" value="63cb8ad8-001e-4071-9ca6-7a0bc7999308">
+        <button class="btn btn-lg btn-primary btn-block btn-secondary" onclick="window.location.href='/orders'" type="button">Доставка в пути</button>
+        <button class="btn btn-lg btn-primary btn-block btn-secondary" onclick="window.location.href='/orders/add'" type="button">Распределение работников</button>
+        <button class="btn btn-lg btn-primary btn-block btn-secondary" onclick="window.location.href='/workers'" type="button">Работники</button>
+        <button class="btn btn-lg btn-primary btn-block btn-secondary" onclick="window.location.href='/transport'" type="button">Транспорт</button>
+        <button class="btn btn-lg btn-primary btn-block btn-secondary" onclick="window.location.href='/products'" type="button">Товары</button>
+        <button class="btn btn-lg btn-primary btn-block btn-secondary" onclick="window.location.href='/lists'" type="button">Списки</button>
+        <button class="btn btn-lg btn-primary btn-block btn-secondary" onclick="window.location.href='/journal'" type="button" th:if="${isAdmin}">Журнал</button>
+    </div>
+</body>
+</html>
